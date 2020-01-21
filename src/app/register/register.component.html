@@ -1,6 +1,6 @@
 <app-header title="Register"></app-header>
 
-<form [formGroup]="registerForm" (ngSubmit)="add()">
+<form [formGroup]="registerForm" (ngSubmit)=register()>
     <div>
         <input placeholder="firstName" formControlName="firstName" name="name" type="text">
         <div *ngIf="hasError('firstName')">
@@ -38,5 +38,5 @@
         </div>
         
     </div>
-    <button type="submit" [disabled]="!registerForm.valid">Add</button>
+    <button type="submit" [disabled]="!registerForm.valid">Register</button>
 </form>
