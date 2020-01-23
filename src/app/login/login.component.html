@@ -1,3 +1,25 @@
-<p>login works!</p>
+<p>LOGIN</p>
 <a routerLink="/todo">View Todo</a>
 <button (click)="view()">View</button>
+<form [formGroup]="loginForm"(ngSubmit)="login()">
+    
+    <div>
+        <input placeholder="email" formControlName="email" name="name" type="text">
+        <div *ngIf="hasError('email')">
+            <p *ngIf="get('email').errors.required">Email is required</p>
+            <p *ngIf="get('email').errors.minlength">Email should be atleast 3 characters</p>
+        </div>
+    </div>
+    
+        <input placeholder="password" formControlName="password" name="name" type="password">
+        <div *ngIf="hasError('password')">
+            <p *ngIf="get('password').errors.required">Password is required</p>
+            <p *ngIf="get('password').errors.minlength">Password should be atleast 3 characters</p>
+        </div>
+    
+    <div>
+   
+    <button type="submit" [disabled]="!loginForm.valid">login</button>
+    </div>
+    </form>
+    
